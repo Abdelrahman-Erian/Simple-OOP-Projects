@@ -19,8 +19,8 @@ Rooms::Rooms()
 }
 
 void Rooms::add(bool tv, int beds, int chairs, string col, int doors,
-                 int fridges, int stove, int sofras, int sp, int tables,
-                 int toilets, int tvs, int windows)
+    int fridges, int stove, int sofras, int sp, int tables,
+    int toilets, int tvs, int windows)
 {
     this->hasTV = tv;
     this->numBeds = beds;
@@ -44,6 +44,7 @@ void Rooms::setDoors(int count) { numDoors = count; }
 void Rooms::setWindows(int count) { numWindows = count; }
 void Rooms::setToilets(int count) { numToilets = count; }
 void Rooms::setFridges(int count) { numFridges = count; }
+void Rooms::setStove(int count) { numStove = count; }
 void Rooms::setSofras(int count) { numSofras = count; }
 void Rooms::setTVs(bool has) { hasTV = has; }
 void Rooms::setColor(const string& newColor) { color = newColor; }
@@ -57,6 +58,7 @@ int Rooms::getDoors() { return numDoors; }
 int Rooms::getWindows() { return numWindows; }
 int Rooms::getToilets() { return numToilets; }
 int Rooms::getFridges() { return numFridges; }
+int Rooms::getStove() { return numStove; }
 int Rooms::getSofras() { return numSofras; }
 bool Rooms::getTVs() { return hasTV; }
 string Rooms::getColor() { return color; }
@@ -78,4 +80,4 @@ void  Rooms::display()
     cout << "Color of Room : " << this->color << '\n';
 }
 
-Rooms::~Rooms() { }
+Rooms::~Rooms() {}

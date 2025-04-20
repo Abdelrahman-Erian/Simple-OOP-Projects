@@ -35,6 +35,7 @@ public:
     void setWindows(int count);
     void setToilets(int count);
     void setFridges(int count);
+    void setStove(int count);
     void setSofras(int count);
     void setTVs(bool has);
     void setColor(const string& newColor);
@@ -48,6 +49,7 @@ public:
     int getWindows();
     int getToilets();
     int getFridges();
+    int getStove();
     int getSofras();
     bool getTVs();
     string getColor();
