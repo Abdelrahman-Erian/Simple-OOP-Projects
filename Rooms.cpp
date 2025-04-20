@@ -12,6 +12,7 @@ Rooms::Rooms()
     this->numWindows = 0;
     this->numToilets = 0;
     this->numFridges = 0;
+    this->numStove = 0;
     this->numSofras = 0;
     this->color = "Un_known";
     this->space = 0;

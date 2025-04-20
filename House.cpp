@@ -31,29 +31,45 @@ House::House(string city, string state, string street, string owner, string crea
 
 void House::add_bedroom(vector<Rooms>_BedRoom)
 {
+    if (!this->BedRooms.empty())
+    {
+        this->numRooms -= (int)this->BedRooms.size();
+    }
     this->BedRooms = _BedRoom;
     this->numRooms += (int)_BedRoom.size();
 }
 void House::add_kitchen(vector<Rooms>_Kitchen)
 {
+    if (!this->Kitchens.empty())
+    {
+        this->numRooms -= (int)this->Kitchens.size();
+    }
     this->Kitchens = _Kitchen;
     this->numRooms += (int)_Kitchen.size();
 }
 void House::add_bathroom(vector<Rooms>_BathRoom)
 {
+    if (!this->BathRooms.empty())
+    {
+        this->numRooms -= (int)this->BathRooms.size();
+    }
     this->BathRooms = _BathRoom;
     this->numRooms += (int)_BathRoom.size();
 }
 void House::add_extra_rooms(vector<Rooms>Extra)
 {
+    if (!this->ExtraRooms.empty())
+    {
+        this->numRooms -= (int)this->ExtraRooms.size();
+    }
     this->ExtraRooms = Extra;
     this->numRooms += (int)Extra.size();
 }
 
 void House::removeBedroom(int index) {
     if (index >= 0 && index < this->BedRooms.size()) {
-        this->Space -= this->BedRooms[index].getSpace(); 
-        this->BedRooms.erase(this->BedRooms.begin() + index); 
+        this->Space -= this->BedRooms[index].getSpace();
+        this->BedRooms.erase(this->BedRooms.begin() + index);
         numRooms--;
     }
     else {
@@ -63,7 +79,7 @@ void House::removeBedroom(int index) {
 
 void House::removeKitchen(int index) {
     if (index >= 0 && index < this->Kitchens.size()) {
-        this->Space -= this->Kitchens[index].getSpace();  
+        this->Space -= this->Kitchens[index].getSpace();
         this->Kitchens.erase(this->Kitchens.begin() + index);
         numRooms--;
     }
@@ -74,8 +90,8 @@ void House::removeKitchen(int index) {
 
 void House::removeBathroom(int index) {
     if (index >= 0 && index < this->BathRooms.size()) {
-        this->Space -= this->BathRooms[index].getSpace(); 
-        this->BathRooms.erase(this->BathRooms.begin() + index);  
+        this->Space -= this->BathRooms[index].getSpace();
+        this->BathRooms.erase(this->BathRooms.begin() + index);
         numRooms--;
     }
     else {
@@ -86,8 +102,8 @@ void House::removeBathroom(int index) {
 void House::removeExtraRoom(int index) {
     if (index >= 0 && index < this->ExtraRooms.size()) {
         this->Space -= this->ExtraRooms[index].getSpace();
-        this->ExtraRooms.erase(this->ExtraRooms.begin() + index);  
-        numRooms--;  
+        this->ExtraRooms.erase(this->ExtraRooms.begin() + index);
+        numRooms--;
     }
     else {
         cout << "Invalid index for extra room!" << endl;
@@ -101,7 +117,7 @@ void House::setCapacity(int newCapacity) { this->Capacity = newCapacity; }
 void House::setSpace(int newSpace) { this->Space = newSpace; }
 
 // Getters
-string House::getAddress(){
+string House::getAddress() {
     return "City : " + this->city + "\nState : " + this->state + "\nStreet : " + this->street;
 }
 string House::getCity() { return this->city; }
@@ -109,13 +125,13 @@ string House::getState() { return this->state; }
 string House::getStreet() { return this->street; }
 string House::getOwner() { return this->Owner; }
 string House::getCreationDate() { return this->CreationDate; }
-int House::getPrice(){ return this->Price; }
+int House::getPrice() { return this->Price; }
 int House::getCapacity() { return this->Capacity; }
 int House::getSpace() { return this->Space; }
 int House::getNumRooooms() { return this->numRooms; }
 int House::getNumBedRooms() { return this->BedRooms.size(); }
 int House::getNumBathRooms() { return this->BathRooms.size(); }
-int House::getNumKitchens() {return this->Kitchens.size(); }
+int House::getNumKitchens() { return this->Kitchens.size(); }
 int House::getNumExtraRooms() { return this->ExtraRooms.size(); }
 
 void House::DisplayDetails()
@@ -144,7 +160,7 @@ void House::DisplayDetails()
     cout << "\nBedRooms : " << endl;
     cout << "Number of BedRooms : " << this->getNumBedRooms() << '\n' << '\n';
     int cnt = 1;
-    for ( auto badroom : this->BathRooms ) {
+    for (auto badroom : this->BathRooms) {
         cout << "Room number : " << cnt++ << '\n';
         badroom.display(); // print details of BathRoom
         cout << '\n';
@@ -155,7 +171,7 @@ void House::DisplayDetails()
     cout << "\nBathrooms : " << endl;
     cout << "Number of BathRooms : " << this->getNumBathRooms() << '\n' << '\n';
     cnt = 1;
-    for ( auto bathroom : this->BathRooms) {
+    for (auto bathroom : this->BathRooms) {
         cout << "Room number : " << cnt++ << '\n';
         bathroom.display(); // print details of BathRoom
         cout << '\n';
@@ -166,7 +182,7 @@ void House::DisplayDetails()
     cout << "\nKitchens : " << endl;
     cout << "Number of Kitchens : " << this->getNumKitchens() << '\n' << '\n';
     cnt = 1;
-    for ( auto kitchen : this->Kitchens ) {
+    for (auto kitchen : this->Kitchens) {
         cout << "Room number : " << cnt++ << '\n';
         kitchen.display(); // print details of BathRoom
         cout << '\n';
@@ -177,11 +193,11 @@ void House::DisplayDetails()
     cout << "\nExtra Rooms:" << endl;
     cout << "Number of ExtraRooms : " << this->getNumExtraRooms() << '\n' << '\n';
     cnt = 1;
-    for ( auto extraRoom : this->ExtraRooms) {
+    for (auto extraRoom : this->ExtraRooms) {
         cout << "Room number : " << cnt++ << '\n';
         extraRoom.display(); // print details of BathRoom
         cout << '\n';
     }
 }
 
-House::~House(){}
+House::~House() {}
