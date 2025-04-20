@@ -70,7 +70,7 @@ void House::removeBedroom(int index) {
     if (index >= 0 && index < this->BedRooms.size()) {
         this->Space -= this->BedRooms[index].getSpace();
         this->BedRooms.erase(this->BedRooms.begin() + index);
-        numRooms--;
+        this->numRooms--;
     }
     else {
         cout << "Invalid index for bedroom!" << endl;
@@ -81,7 +81,7 @@ void House::removeKitchen(int index) {
     if (index >= 0 && index < this->Kitchens.size()) {
         this->Space -= this->Kitchens[index].getSpace();
         this->Kitchens.erase(this->Kitchens.begin() + index);
-        numRooms--;
+        this->numRooms--;
     }
     else {
         cout << "Invalid index for kitchen!" << endl;
@@ -92,7 +92,7 @@ void House::removeBathroom(int index) {
     if (index >= 0 && index < this->BathRooms.size()) {
         this->Space -= this->BathRooms[index].getSpace();
         this->BathRooms.erase(this->BathRooms.begin() + index);
-        numRooms--;
+        this->numRooms--;
     }
     else {
         cout << "Invalid index for bathroom!" << endl;
@@ -103,7 +103,7 @@ void House::removeExtraRoom(int index) {
     if (index >= 0 && index < this->ExtraRooms.size()) {
         this->Space -= this->ExtraRooms[index].getSpace();
         this->ExtraRooms.erase(this->ExtraRooms.begin() + index);
-        numRooms--;
+        this->numRooms--;
     }
     else {
         cout << "Invalid index for extra room!" << endl;
